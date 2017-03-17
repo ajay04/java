@@ -1,0 +1,134 @@
+// number to word in java
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+class Number_to_word
+{
+	public static void main(String args[])
+	{
+		ArrayList<String> ar = new ArrayList<String>();
+		String ones[] = {" TEN", " ELEVEN", " TWELVE", " THIRTEEN", " FOURTEEN", " FIFTEEN", " SIXTEEN", " SEVENTEEN", " EIGHTEEN", " NINETEEN"};
+		
+		List<String> one29 = Arrays.asList("one","two","three","four","five","six","seven","eight","nine");
+		//boolean contains = dan.contains(say.getText());
+		List<String> multiple = Arrays.asList("hundred","thousand","lakh","crore");
+		Scanner sc= new Scanner(System.in);
+		int no=sc.nextInt();
+		if (no<=0)
+		  System.out.println("number is negative");
+		  
+		int lr=0,r,count=0;
+		while(no>0)
+		{
+			r=no%10;
+				no=no/10;
+			if(count!=1 && count!=4 && count!=6 && count!=8 )
+			{
+			try
+			{
+			//System.out.println(ar.get(0));
+			//System.out.println(multiple.contains(ar.get(0)));
+			  if(multiple.contains(ar.get(0)))
+			  {
+			     ar.remove(0);
+			  }
+			  }
+			  catch(Exception e){}
+			  if (count==2)
+			    ar.add(0,"hundred");
+			  else if(count==3)
+			    ar.add(0,"thousand");
+			 else if(count==5)
+			    ar.add(0,"lakh");
+			 else if(count==7)
+			    ar.add(0,"crore");
+				switch(r)
+			      {
+			        
+			        case 1:
+			          ar.add(0,"one");
+			          break;
+			        case 2:
+			          ar.add(0,"two");
+			          break;
+			        case 3:
+			          ar.add(0,"three");
+			          break;
+			        case 4:
+			          ar.add(0,"four");
+			          break;
+			        case 5:
+			          ar.add(0,"five");
+			          break;
+			        case 6:
+			          ar.add(0,"six");
+			          break;
+			        case 7:
+			          ar.add(0,"seven");
+			          break;
+			        case 8:
+			          ar.add(0,"Eight");
+			          break;
+			        case 9:
+			          ar.add(0,"nine");
+			      }
+			}
+			//if(count==1)
+			else
+			{
+			  
+				 switch(r)
+				 {
+				      case 1:
+				     
+				      try{
+				        if(one29.contains(ar.get(0)))
+				        {
+				        
+				        ar.remove(0);
+				        }
+				        }
+				        catch(Exception e){}
+				        ar.add(0,ones[lr]);
+			          break;
+			        case 2:
+			          ar.add(0,"twenty");
+			          break;
+			        case 3:
+			          ar.add(0,"thrty");
+			          break;
+			        case 4:
+			          ar.add(0,"fourty");
+			          break;
+			        case 5:
+			          ar.add(0,"fivety");
+			          break;
+			        case 6:
+			          ar.add(0,"sixty");
+			          break;
+			        case 7:
+			          ar.add(0,"seventy");
+			          break;
+			        case 8:
+			          ar.add(0,"Eightty");
+			          break;
+			        case 9:
+			          ar.add(0,"ninety");
+			          break;
+				 }
+			}
+			lr=r;
+			count=count+1;
+			//System.out.println(r);
+			//System.out.println(lr);
+			lr=r;
+			
+		//System.out.println(r);
+		}
+		//System.out.println(ar);
+		for(String str: ar)
+		{
+		  System.out.print(str+" ");
+		}
+	}
+}
